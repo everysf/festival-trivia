@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    
+<section class="bodyWrap">
+
+    <!-- Main div -->
+    <section class="landingSection">
+        <div class="landingWrap"><h1 class="landingHead">Do<br>You<br>Know <br>Your<br>Festivals?</h1></div>
+        <video poster="img/osl.jpg" autoplay muted loop>
+            <source src="img/osl.mp4" type="video/mp4">
+        </video>
+    </section>
+
+    <!-- Hidden at Load -->
+    <!-- Question div --> 
+    <section class="questionSection">
+        <div class="questionWrap">
+            <div class="photoWrap">
+                <img src="" alt="festivalPhoto" class="festPhoto">
+                <h2 class="questionHead"></h2>
+            </div>
+            <div class="answerBox"> 
+                <div class="answerRow">
+                    <h3 class="answerOption answer1">Answer</h3>
+                    <h3 class="answerOption answer2">Answer</h3>
+                </div>
+                <div class="answerRow">
+                    <h3 class="answerOption answer3">Answer</h3>
+                    <h3 class="answerOption answer4">Answer</h3>
+                </div>
+            </div>
+            <p class="center">Question <span class="statusNumber"></span> of 10</p>
+        </div>
+    </section>
+    
+    <!-- Result div --> 
+    <section class="answerSection">
+        <h1 class="answerResult"></h1>
+        <h3 class="nextQuestionBtn">Next Question</h3>
+    </section>
+
+    <!-- Reset --> 
+    <section class="resetSection">
+        <h1 class="resultHeader">Hello</h1>
+    </section>
+
+    <section class="footer">
+        <h3 class="footerType">Kevin Macaraeg</h3>
+    </section>
+
+</section>
+
+<script src="questions.js"></script>
+    <script src="script.js"></script>
+
+
+
+</body>
+</html>
