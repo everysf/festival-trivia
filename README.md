@@ -6,7 +6,7 @@ Do you know your music festivals? Test your knowledge with this 10 question eval
 
 [Website Link](https://everysf.github.io/festival-trivia)
 
-![screenshot](festscreenshot.png)
+![screenshot](img/festscreenshot.png)
 
 # Technologies Used 
 - HTML

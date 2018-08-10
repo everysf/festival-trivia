@@ -132,4 +132,4 @@ $(".resetButton").on("click", function() {
         answerValue: true,
     }
     $(".landingWrap").show();
-})
+});

@@ -1,5 +1,5 @@
 var questionBank = [
-    {},
+    {}, // empty object
     {
         question: "Lollapalooza",
         answer: [
