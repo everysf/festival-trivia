@@ -1,5 +1,5 @@
- // Game state manager
- var game = {
+// Game state manager
+var game = {
     started: false,
     questionsStarted: false,
     questionNumber: 1,
@@ -11,7 +11,7 @@
     answerValue: true,
 }
 
-// Timer
+// Timer logic
 var timeRemaining = 15;
 var timer;
 
@@ -50,12 +50,18 @@ function loadQuestion() {
     console.log("Question #" + game.questionNumber + " correct answer: " + questionBank[game.questionNumber].correctAnswer)
 }
 
+// Load answer screen
+function loadAnswerScreen() {
+    $(".questionSection").hide();
+    $(".answerSection").show();
+}
+
 // Evaluate answer
 // Load answer screen
 $(".answerOption").on("click", function clickAnswer() {
+    clearTimer();
 
     // Correct or Incorrect
-    clearTimer();
     if (game.questionNumber <= 10) {
         console.log(questionBank[game.questionNumber].correctAnswer)
         if ($(this).text() == questionBank[game.questionNumber].correctAnswer) {
@@ -70,7 +76,7 @@ $(".answerOption").on("click", function clickAnswer() {
     // Increment
     game.questionNumber++;
 
-    // Load
+    // Load answer screen
     loadAnswerScreen()
 
     // No more questions
@@ -94,12 +100,6 @@ $(".answerOption").on("click", function clickAnswer() {
         }
             }
     });
-
-// Load answer screen
-function loadAnswerScreen() {
-    $(".questionSection").hide();
-    $(".answerSection").show();
-}
 
 // Next question
 $(".nextQuestionBtn").on("click",function nextQuestion() {
