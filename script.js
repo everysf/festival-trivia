@@ -8,23 +8,39 @@
     stage: 0,
     counterCorrect: 0,
     counterIncorrect: 0,
-    answerValue: true
+    answerValue: true,
 }
 
-// Start Game
-$(".landingWrap").on("click", function() {
-    $(".landingWrap").hide();
-    $(".questionSection").show();
-    game.started = true;
-    game.questionsStarted = true;
-    loadQuestion();
-    if (!game.questionNumber === 0) {
-        game.questionNumber++;
+
+
+// Timer
+var timeRemaining = 15;
+var timer;
+
+function startTimer() {
+    timer = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    if (timeRemaining <= 0) {
+        game.counterIncorrect++;
+        $(".answerResult").html("Answer faster!")
+        clearTimer()
+        loadAnswerScreen()
     }
-});
+    timeRemaining--;
+    $(".timer").text(timeRemaining + " seconds")
+}
+
+function clearTimer() {
+    clearInterval(timer);
+}
 
 // Load question screen
 function loadQuestion() {
+    clearTimer()
+    timeRemaining = 15;
+    startTimer()
     $(".festPhoto").attr("src", questionBank[game.questionNumber].image)
     $(".questionHead").text(questionBank[game.questionNumber].question)
     $(".statusNumber").text(game.questionNumber)
@@ -37,22 +53,32 @@ function loadQuestion() {
 
 // Evaluate answer
 // Load answer screen
-$(".answerOption").on("click", function() {
-    game.questionNumber++;
-    loadAnswerScreen()
-    if (game.questionNumber < 10) {
-        if ($(".answerOption").text() == questionBank[game.questionNumber-1].correctAnswer) {
-            game.answerValue === true;
-            console.log("Question " + (game.questionNumber-1) + ": You got it!")
+$(".answerOption").on("click", function clickAnswer() {
+
+    // Correct or Incorrect
+    clearTimer();
+    if (game.questionNumber <= 10) {
+        console.log(questionBank[game.questionNumber].correctAnswer)
+        if ($(this).text() == questionBank[game.questionNumber].correctAnswer) {
+            game.counterCorrect++;
+            $(".answerResult").text("Question " + (game.questionNumber) + ": You got it!")
         } else {
-            game.answerValue === false;
-            $(".answerResult").html("Question " + (game.questionNumber-1) + ": Wrong city...")
+            game.counterIncorrect++;
+            $(".answerResult").html("Question " + (game.questionNumber) + ": Wrong city.")
         }
     }
+
+    // Increment
+    game.questionNumber++;
+
+    // Load
+    loadAnswerScreen()
+
+    // No more questions
     if (game.questionNumber > 10) {
         $(".answerSection").hide();
         $(".resetSection").show();
-        console.log(game.counterCorrect)
+        console.log("You answered " + game.counterCorrect + " correctly.")
         if (game.counterCorrect === 10) {
             $(".resultHeader").text("You're a festival vet.")
         } else if (game.counterCorrect >= 7) {
@@ -61,9 +87,10 @@ $(".answerOption").on("click", function() {
             $(".resultHeader").text("Have you even been to a festival?.")
         } else {
             $(".resultHeader").text("You need to listen to some more music!")
-        }}
+        }
     }
-);
+
+});
 
 // Load answer screen
 function loadAnswerScreen() {
@@ -78,5 +105,16 @@ $(".nextQuestionBtn").on("click",function nextQuestion() {
     loadQuestion();
 });
 
-// AnswerValue
+// Start Game
+$(".landingWrap").on("click", function() {
+    $(".landingWrap").hide();
+    $(".questionSection").show();
+    game.started = true;
+    game.questionsStarted = true;
+    loadQuestion();
+});
 
+// Reset Button
+$(".resetButton").on("click", function() {
+    $(".resetSection").hide()
+})

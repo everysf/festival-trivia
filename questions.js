@@ -74,7 +74,7 @@ var questionBank = [
             "San Francisco, CA",
             "Portland, OR"
         ],
-        correctAnswer: "Austin, TX",
+        correctAnswer: "Seattle, WA",
         image: "img/bumbershoot.jpg"
     },
     {
@@ -110,5 +110,4 @@ var questionBank = [
         correctAnswer: "San Francisco, CA",
         image: "img/osl.jpg"
     },
-    {}
 ]

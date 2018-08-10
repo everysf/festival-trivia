@@ -37,7 +37,6 @@ p {
     top: 0;
     padding: 50px;
     box-sizing: border-box;
-    background: url("img/osl.mp4");
     background-position: center;
     overflow: hidden;
 }
@@ -79,7 +78,8 @@ p {
     padding: 50px;
     box-shadow: 0px 10px 20px rgba(0,0,0,.0);
     transition: .5s ease;
-    line-height: 190px;
+    line-height: 120px;
+    background-color: pink;
 }
 
 .landingWrap:hover {
@@ -116,7 +116,6 @@ video {
     box-shadow: 0px 10px 20px rgba(0,0,0,.5);
     transition: 1s ease;
     display: none;
-    margin: 0 auto;
 }
 
 .answerSection {
@@ -151,7 +150,7 @@ video {
     padding: 20px 40px;
     background-color: rgba(255,255,255,0);
     width: 320px;
-    transition: .2s ease;
+    transition: .5s ease;
     text-align: center;
     box-shadow: 0px 10px 20px rgba(0,0,0,.0);
 }
@@ -169,8 +168,9 @@ video {
     margin: 20px auto 0;
     padding: 20px;
     box-shadow: 0px 10px 20px rgba(0,0,0,.0);
-    transition: .2s ease;
+    transition: .5s ease;
 }
+
 .nextQuestionBtn:hover {
     box-shadow: 0px 10px 20px rgba(0,0,0,.5);
     transform: translateY(-10px);
@@ -193,7 +193,12 @@ video {
 .festPhoto {
     height: 390px;
     width: 800px;
+    transition: .5s ease;
 }
+
+.photoWrap:hover ~ .festPhoto {
+    opacity: .7;
+} 
 
 .photoWrap {
     position: relative;
@@ -206,4 +211,22 @@ video {
 .footerType {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 12px;
+}
+
+.resetSection {
+    position: absolute;
+    z-index: 100;
+    display: none;
+}
+
+.gameWrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
