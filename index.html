@@ -23,25 +23,25 @@
     <!-- Hidden at Load -->
     <!-- Question div --> 
     <div class="gameWrapper">
-    <section class="questionSection">
-        <div class="questionWrap">
-            <div class="photoWrap">
-                <img src="" alt="festivalPhoto" class="festPhoto"/>
-                <h2 class="questionHead"></h2>
-            </div>
-            <div class="answerBox"> 
-                <div class="answerRow">
-                    <h3 class="answerOption answer1">Answer</h3>
-                    <h3 class="answerOption answer2">Answer</h3>
+        <section class="questionSection">
+            <div class="questionWrap">
+                <div class="photoWrap">
+                    <img src="" alt="festivalPhoto" class="festPhoto"/>
+                    <h2 class="questionHead"></h2>
                 </div>
-                <div class="answerRow">
-                    <h3 class="answerOption answer3">Answer</h3>
-                    <h3 class="answerOption answer4">Answer</h3>
+                <div class="answerBox"> 
+                    <div class="answerRow">
+                        <h3 class="answerOption answer1">Answer</h3>
+                        <h3 class="answerOption answer2">Answer</h3>
+                    </div>
+                    <div class="answerRow">
+                        <h3 class="answerOption answer3">Answer</h3>
+                        <h3 class="answerOption answer4">Answer</h3>
+                    </div>
                 </div>
+                <p class="center"><span class="timer">15 seconds</span> – Question <span class="statusNumber"></span> of 10</p>
             </div>
-            <p class="center"><span class="timer">15 seconds</span> – Question <span class="statusNumber"></span> of 10</p>
-        </div>
-    </section>
+        </section>
     
     <!-- Result div --> 
     <section class="answerSection">
@@ -52,15 +52,13 @@
     <!-- Reset --> 
     <section class="resetSection">
         <h1 class="resultHeader"></h1>
-        <h3 class="resetButton">Reset Game</h3>
+        <div class="statsBox">
+            <h3 class="center">You got <span class="correctDisplay"></span> right, &amp; <span class="incorrectDisplay"></span> wrong.</h3>
+        </div>
+        <h3 class="resetButton">Take it Again</h3>
     </section>
-    </div>
+</div>
 
-    <section class="footer">
-        <h3 class="footerType">Kevin Macaraeg</h3>
-    </section>
-
-</section>
 
     <script src="questions.js"></script>
     <script src="script.js"></script>

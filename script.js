@@ -11,8 +11,6 @@
     answerValue: true,
 }
 
-
-
 // Timer
 var timeRemaining = 15;
 var timer;
@@ -27,6 +25,7 @@ function updateTimer() {
         $(".answerResult").html("Answer faster!")
         clearTimer()
         loadAnswerScreen()
+        game.questionNumber++;
     }
     timeRemaining--;
     $(".timer").text(timeRemaining + " seconds")
@@ -78,19 +77,23 @@ $(".answerOption").on("click", function clickAnswer() {
     if (game.questionNumber > 10) {
         $(".answerSection").hide();
         $(".resetSection").show();
+        function updateCounter() {
+            $(".correctDisplay").text(game.counterCorrect);
+            $(".incorrectDisplay").text(game.counterIncorrect);
+        }
+        updateCounter()
         console.log("You answered " + game.counterCorrect + " correctly.")
         if (game.counterCorrect === 10) {
             $(".resultHeader").text("You're a festival vet.")
-        } else if (game.counterCorrect >= 7) {
+        } else if (game.counterCorrect >= 5) {
             $(".resultHeader").text("Damn, you know your music.")
-        } else if (game.counterCorrect >= 4) {
-            $(".resultHeader").text("Have you even been to a festival?.")
+        } else if (game.counterCorrect >= 3) {
+            $(".resultHeader").text("Have you even been to a festival?")
         } else {
             $(".resultHeader").text("You need to listen to some more music!")
         }
-    }
-
-});
+            }
+    });
 
 // Load answer screen
 function loadAnswerScreen() {
@@ -117,4 +120,16 @@ $(".landingWrap").on("click", function() {
 // Reset Button
 $(".resetButton").on("click", function() {
     $(".resetSection").hide()
+    game = {
+        started: false,
+        questionsStarted: false,
+        questionNumber: 1,
+        totalQuestions: 10,
+        name: "",
+        stage: 0,
+        counterCorrect: 0,
+        counterIncorrect: 0,
+        answerValue: true,
+    }
+    $(".landingWrap").show();
 })
